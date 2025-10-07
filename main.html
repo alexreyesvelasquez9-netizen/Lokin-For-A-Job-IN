@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <title> Looking For a Job</title>
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #3498db;
+      --accent-color: #e74c3c;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background-color: var(--primary-color) !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 1rem 0;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: white !important;
+    }
+
+    .navbar-nav .nav-link {
+      color: rgba(255, 255, 255, 0.8) !important;
+      font-weight: 500;
+      margin: 0 10px;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+      padding: 8px 15px !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: white !important;
+      background-color: var(--secondary-color);
+    }
+
+    /* Banner Styles */
+    .banner {
+      position: relative;
+      height: 60vh;
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+
+    .banner-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7);
+    }
+
+    .banner-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      z-index: 10;
+    }
+
+    .banner-text h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      margin-bottom: 1rem;
+    }
+
+    .banner-text p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Section Styles */
+    .section {
+      background-color: white;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+    }
+
+    .section h3 {
+      color: var(--primary-color);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--secondary-color);
+      display: inline-block;
+    }
+
+    /* Feature Cards */
+    .feature-card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      height: 100%;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--secondary-color);
+      margin-bottom: 1rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 3rem 0;
+      border-radius: 8px;
+      margin: 3rem 0;
+      text-align: center;
+    }
+
+    .cta-section h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-cta {
+      background-color: var(--accent-color);
+      color: white;
+      font-weight: 600;
+      padding: 12px 30px;
+      border-radius: 50px;
+      border: none;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-cta:hover {
+      background-color: #c0392b;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Footer Styles */
+    .footer {
+      background-color: var(--dark-color);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 3rem 0 1rem;
+      margin-top: 4rem;
+    }
+
+    .footer h5 {
+      color: white;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer h5:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--secondary-color);
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: white;
+      text-decoration: none;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      margin-right: 10px;
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .banner-text h2 {
+        font-size: 2rem;
+      }
+      
+      .banner {
+        height: 40vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">PortalEmpleo</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="buscar_empleo.html">Buscar Empleo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="buscar_empleados.html">Buscar Empleados</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner -->
+  <div class="banner">
+    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Banner" class="banner-image">
+    <div class="banner-text">
+      <h2>Conectando Talentos con Oportunidades</h2>
+      <p>La plataforma líder para encontrar trabajo o talento en el mundo digital</p>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <!-- Features Section -->
+    <div class="row mb-5">
+      <div class="col-md-4 mb-4">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <h4>Encuentra Trabajo</h4>
+          <p>Accede a miles de oportunidades laborales en el sector digital y freelance.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h4>Encuentra Talento</h4>
+          <p>Conecta con profesionales calificados para tus proyectos y empresas.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h4>Crecimiento Profesional</h4>
+          <p>Desarrolla nuevas habilidades y acelera tu carrera profesional.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vision and Mission -->
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="section">
+          <h3>Visión</h3>
+          <p>Eliminar las barreras del desempleo en jóvenes y adultos, creando un entorno donde las personas puedan encontrar trabajo de manera fácil, rápida y accesible. Aspiramos a ser un referente en la generación de oportunidades laborales en el ámbito freelance y digital, impulsando la inclusión, la innovación y el crecimiento económico.</p>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="section">
+          <h3>Misión</h3>
+          <p>Brindar a jóvenes y adultos un acceso fácil, práctico y confiable a oportunidades que les permitan desarrollar sus talentos, adquirir nuevas habilidades y mejorar su calidad de vida. Nuestro propósito es ofrecer herramientas y acompañamiento que impulsen el crecimiento personal y profesional.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+      <div class="container">
+        <h3>¿Listo para encontrar tu próxima oportunidad?</h3>
+        <p>Únete a miles de profesionales y empresas que ya confían en nosotros</p>
+        <a href="buscar_empleo.html" class="btn btn-cta">Comenzar Ahora</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5>PortalEmpleo</h5>
+          <p>Conectando talentos con oportunidades en el mundo digital desde 2023.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Enlaces Rápidos</h5>
+          <ul class="list-unstyled footer-links">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="buscar_empleo.html">Buscar Empleo</a></li>
+            <li><a href="buscar_empleados.html">Buscar Empleados</a></li>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Contacto</h5>
+          <ul class="list-unstyled footer-links">
+            <li><i class="fas fa-map-marker-alt mr-2"></i> INFRAMEN</li>
+            <li><i class="fas fa-phone mr-2"></i> +503 74043537</li>
+            <li><i class="fas fa-envelope mr-2"></i> LookingFor-A-Jo@outlook.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <div class="container">
+          <span>&copy; 2025 PortalEmpleo. Todos los derechos reservados.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
